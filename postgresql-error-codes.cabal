@@ -5,6 +5,7 @@ version:
 category:
   Database, PostgreSQL, Error Handling
 synopsis:
+  PostgreSQL error codes
 homepage:
   https://github.com/nikita-volkov/postgresql-error-codes 
 bug-reports:
