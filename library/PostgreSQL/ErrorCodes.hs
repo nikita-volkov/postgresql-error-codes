@@ -1,12 +1,12 @@
 -- |
 -- Error codes as per
--- <http://www.postgresql.org/docs/current/interactive/errcodes-appendix.html>.
+-- <https://www.postgresql.org/docs/9.6/static/errcodes-appendix.html>.
 module PostgreSQL.ErrorCodes where
 
 import qualified Data.ByteString
 
 
-type ErrorCode = 
+type ErrorCode =
   Data.ByteString.ByteString
 
 -- * Class 00 — Successful Completion
@@ -180,6 +180,10 @@ invalid_regular_expression                           :: ErrorCode = "2201B"
 invalid_row_count_in_limit_clause                    :: ErrorCode = "2201W"
 -- | Code \"2201X\".
 invalid_row_count_in_result_offset_clause            :: ErrorCode = "2201X"
+-- | Code \"2202H\".
+invalid_tablesample_argument                         :: ErrorCode = "2202H"
+-- | Code \"2202G\".
+invalid_tablesample_repeat                           :: ErrorCode = "2202G"
 -- | Code \"22009\".
 invalid_time_zone_displacement_value                 :: ErrorCode = "22009"
 -- | Code \"2200C\".
@@ -274,6 +278,8 @@ schema_and_data_statement_mixing_not_supported       :: ErrorCode = "25007"
 no_active_sql_transaction                            :: ErrorCode = "25P01"
 -- | Code \"25P02\".
 in_failed_sql_transaction                            :: ErrorCode = "25P02"
+-- | Code \"25PO3\".
+idle_in_transaction_session_timeout                  :: ErrorCode = "25P03"
 
 -- * Class 26 — Invalid SQL Statement Name
 -------------------------
@@ -356,6 +362,8 @@ null_value_not_allowed'                              :: ErrorCode = "39004"
 trigger_protocol_violated                            :: ErrorCode = "39P01"
 -- | Code \"39P02\".
 srf_protocol_violated                                :: ErrorCode = "39P02"
+-- | Code \"39PO3\".
+event_trigger_protocol_violated                      :: ErrorCode = "39P03"
 
 -- * Class 3B — Savepoint Exception
 -------------------------
@@ -553,6 +561,12 @@ undefined_file                                       :: ErrorCode = "58P01"
 -- | Code \"58P02\".
 duplicate_file                                       :: ErrorCode = "58P02"
 
+-- * Class 72 — Snapshot Failure
+-------------------------
+
+-- | Code \"72000\".
+snapshot_too_old                                     :: ErrorCode = "72000"
+
 -- * Class F0 — Configuration File Error
 -------------------------
 
@@ -630,6 +644,8 @@ raise_exception                                      :: ErrorCode = "P0001"
 no_data_found                                        :: ErrorCode = "P0002"
 -- | Code \"P0003\".
 too_many_rows                                        :: ErrorCode = "P0003"
+-- | Code \"POOO4\".
+assert_failure                                       :: ErrorCode = "P0004"
 
 -- * Class XX — Internal Error
 -------------------------
@@ -640,3 +656,4 @@ internal_error                                       :: ErrorCode = "XX000"
 data_corrupted                                       :: ErrorCode = "XX001"
 -- | Code \"XX002\".
 index_corrupted                                      :: ErrorCode = "XX002"
+
